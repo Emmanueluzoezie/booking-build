@@ -15,7 +15,7 @@ const Sidebar = () => {
                 <Image src={logo} alt="logo" className='w-[50px]' />
             </div>
             <div className='mt-7'>
-                <Link className={`${router.pathname === "/" ? "text-blue-600 bg-gray-300" : ""} flex items-center space-x-3 hover:bg-gray-300 hover:no-underline px-6 py-3 text-gray-600`} href="/favorite">
+                <Link className={`${router.pathname === "/" ? "text-blue-600 bg-gray-300" : ""} flex items-center space-x-3 hover:bg-gray-300 hover:no-underline px-6 py-3 text-gray-600`} href="/">
                     <MdHome className='text-xl' />
                     <h5>Home</h5>
                 </Link>
@@ -55,10 +55,10 @@ const Sidebar = () => {
                     <MdRealEstateAgent className='text-xl' />
                     <h5>Real Estate</h5>
                 </Link>
-                <Link className={`${router.pathname === "/others" ? "text-blue-600 bg-gray-300" : ""} flex items-center space-x-3 hover:bg-gray-300 hover:no-underline px-6 py-3 text-gray-600`} href="/others">
+                {/* <Link className={`${router.pathname === "/others" ? "text-blue-600 bg-gray-300" : ""} flex items-center space-x-3 hover:bg-gray-300 hover:no-underline px-6 py-3 text-gray-600`} href="/others">
                     <MdDevicesOther className='text-xl' />
                     <h5>Others</h5>
-                </Link>
+                </Link> */}
                 <Link className={`${router.pathname === "/favorite" ? "text-blue-600 bg-gray-300" : ""} flex items-center space-x-3 hover:bg-gray-300 hover:no-underline px-6 py-3 text-gray-600`} href="/favorite">
                     <MdFavorite className='text-xl' />
                     <h5>Favorites</h5>

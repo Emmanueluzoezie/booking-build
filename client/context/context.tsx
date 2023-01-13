@@ -3,32 +3,31 @@ import { addDays } from 'date-fns';
 import { Range } from "react-date-range";
 import { format } from "date-fns";
 
-// type rangeType = {
-//     startDate: Date,
-//     endDate: Date,
-//     key: String,
-// }
+type rangeType = {
+    startDate: Date | undefined,
+    endDate: Date | undefined,
+}
 
 interface IstateContext {
     sidebar: boolean
     setSidebar: Dispatch<SetStateAction<boolean>>
-    openDate: boolean
-    setOpenDate: Dispatch<SetStateAction<boolean>>
-    dateRange: Range[]
-    setDateRange: Dispatch<SetStateAction<Range[]>>
+    search: boolean
+    setSearch: Dispatch<SetStateAction<boolean>>
+    endDate: Date | null
+    setEndDate: Dispatch<SetStateAction<Date | null>>
+    startDate: Date | null
+    setStartDate: Dispatch<SetStateAction<Date | null>>
 }
 
 const initialState = {
     sidebar: false,
     setSidebar: () => false,
-    openDate: false,
-    setOpenDate: () => false,
-    dateRange: [{
-        startDate: new Date(),
-        endDate: new Date(),
-        key: "selection",
-    }],
-    setDateRange: () => void{}
+    search: false,
+    setSearch: () => false,
+    endDate: null,
+    setEndDate: () => void {},
+    startDate: null ,
+    setStartDate: () => void{}
 
 }
 
@@ -40,19 +39,14 @@ interface Childern {
 
 export const ContextProvider: React.FC<Childern> = ({ children }) => {
     const [sidebar, setSidebar] = useState<boolean>(false)
-    const [openDate, setOpenDate] = useState<boolean>(false)
-    const [dateRange, setDateRange] = useState<Range[]>([
-        {
-            startDate: new Date(),
-            endDate: new Date(),
-            key: "selection",
-        },
-    ])
+    const [search, setSearch] = useState<boolean>(false)
+    const [endDate, setEndDate] = useState<Date|null>(null)
+    const [startDate, setStartDate] = useState<Date|null>(null)
 
 
     return (
         <StateContext.Provider value={{
-            sidebar, setSidebar, dateRange, setDateRange, openDate, setOpenDate
+            sidebar, setSidebar, startDate, setStartDate, endDate, setEndDate, search, setSearch
         }}>
             {children}
         </StateContext.Provider>

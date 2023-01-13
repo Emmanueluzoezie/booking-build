@@ -2,18 +2,16 @@ import Head from 'next/head'
 import Footer from '../components/footer'
 import Header from '../components/header'
 import HomeComponent from '../components/homeComponent'
+import Search from '../components/search'
 import Sidebar from '../components/sidebar'
 import { useContextState } from '../context/context'
 
 export default function Home() {
-  const { sidebar, setSidebar, openDate, setOpenDate } = useContextState()
+  const { sidebar, setSidebar, search, setSearch } = useContextState()
 
   const handleItem = () => {
     if (sidebar) {
       setSidebar(false)
-    }
-    if (openDate){
-      setOpenDate(false)
     }
     return
   }
@@ -28,11 +26,14 @@ export default function Home() {
       </Head>
 
       <div className={`relative bg-slate-100`} onClick={handleItem}>
-        {sidebar ? <div className='fixed bg-red-600'>
+        {sidebar ? <div className='fixed z-40'>
           <Sidebar />
         </div> : ""}
         <div>
-          <Header />
+          <div className='sticky p-6 space-y-2 border-b-2'>
+            <Header />
+            {search && <Search />}
+          </div>
           <HomeComponent />
           <Footer />
         </div>
