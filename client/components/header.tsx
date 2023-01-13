@@ -3,8 +3,6 @@ import React, { useState } from 'react'
 import logo from "../public/logodark.png"
 import { MdSearch, MdMenu, MdOutlineShoppingCart } from "react-icons/md"
 import { useContextState } from '../context/context'
-import "react-date-range/dist/styles.css"; // main css file
-import "react-date-range/dist/theme/default.css"; // theme css file
 import { useRouter } from 'next/router'
 
 const Header = () => {
@@ -12,7 +10,7 @@ const Header = () => {
     const router = useRouter()
 
     return (
-        <nav className=''>
+        <nav className='py-2 px-0'>
             <div className='flex items-center justify-between'>
                 <div className='w-[50px] cursor-pointer' onClick={() => router.push("/")}>
                     <Image src={logo} alt="logo" />

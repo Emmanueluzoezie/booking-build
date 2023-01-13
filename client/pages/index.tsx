@@ -7,14 +7,11 @@ import Sidebar from '../components/sidebar'
 import { useContextState } from '../context/context'
 
 export default function Home() {
-  const { sidebar, setSidebar, openDate, setOpenDate, search, setSearch } = useContextState()
+  const { sidebar, setSidebar, search, setSearch } = useContextState()
 
   const handleItem = () => {
     if (sidebar) {
       setSidebar(false)
-    }
-    if (openDate){
-      setOpenDate(false)
     }
     return
   }

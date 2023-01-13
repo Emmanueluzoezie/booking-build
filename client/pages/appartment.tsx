@@ -1,4 +1,5 @@
 import Head from "next/head"
+import Body from "../components/body"
 import Footer from "../components/footer"
 import Header from "../components/header"
 import Sidebar from "../components/sidebar"
@@ -6,15 +7,15 @@ import { useContextState } from "../context/context"
 
 
 export default function Appartment() {
-    const { sidebar, setSidebar, openDate, setOpenDate } = useContextState()
+    const { sidebar, setSidebar } = useContextState()
 
     const handleItem = () => {
         if (sidebar) {
             setSidebar(false)
         }
-        if (openDate) {
-            setOpenDate(false)
-        }
+        // if (openDate) {
+        //     setOpenDate(false)
+        // }
         return
     }
 
@@ -32,10 +33,11 @@ export default function Appartment() {
                     <Sidebar />
                 </div> : ""}
                 <div>
-                    <div className='sticky px-6 pt-6 space-y-2 border-b-2'>
+                    <div className='sticky space-y-2 p-4 border-b-2'>
                     <Header />
                     </div>
-                    <Footer />
+                    <Body />
+                    {/* <Footer /> */}
                 </div>
             </div>
         </>
